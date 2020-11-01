@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  sports_api:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 5000:80
+    depends_on:
+      - db
+  db:
+    image: 'postgres'
+    env_file:
+      - ./database.env
